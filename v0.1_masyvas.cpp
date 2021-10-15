@@ -86,7 +86,7 @@ void count_median(studentu_duom &vienas)//medianos skaičiavimas
         }
     }
     if (counter % 2 == 0) {
-        cout << float(((vienas.paz[counter / 2 - 1]) + (vienas.paz[(counter / 2)])) / 2.);
+        cout << float(((vienas.paz[counter / 2 - 1]) + (vienas.paz[((counter / 2))])) / 2.);
     } else {
         cout << vienas.paz[(counter / 2 )];
     }
