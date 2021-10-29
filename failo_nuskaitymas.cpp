@@ -9,8 +9,12 @@ void failo_nuskaitymas(vector<studentu_duom>& Eil, int* pazymiu_skaicius){
     int laik;
     ifstream failo_skait;
     string buff;
+    try{
     failo_skait.open("C:/Users/Admin/OneDrive/Dokumentai/mano.txt/kursiokai.txt");
-    if (failo_skait.is_open()){
+
+    if (!failo_skait.is_open())
+        throw 0;
+
         getline(failo_skait >> ws, buff);
         *pazymiu_skaicius = zodziu_kiekis(buff) - 3;
         while (true){
@@ -26,10 +30,14 @@ void failo_nuskaitymas(vector<studentu_duom>& Eil, int* pazymiu_skaicius){
                 Eil.at(studentu_ska).paz.push_back(laik);
             }
             failo_skait >> Eil.at(studentu_ska).egzam;
+            Eil.at(studentu_ska).gal_paz = Eil.at(studentu_ska).gal_paz / *pazymiu_skaicius;
             Eil.at(studentu_ska).gal_paz = Eil.at(studentu_ska).gal_paz * 0.4 + 0.6 * Eil.at(studentu_ska).egzam;
             studentu_ska++;
         }
     }
-    else {
-        cout << "-\n";
-    }}
+    catch(int e)
+    {
+     cout << "Tokio failo nera" << e << endl;
+    }
+}
+
