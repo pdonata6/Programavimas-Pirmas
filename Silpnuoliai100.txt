@@ -43,4 +43,3 @@ Vardas92                Pavarde92                     2.44
 Vardas94                Pavarde94                        4
 Vardas97                Pavarde97                      4.2
 Vardas100               Pavarde100                     4.68
-                                                 0
