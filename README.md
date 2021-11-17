@@ -13,7 +13,7 @@
 • Programos naudojimasis bus paprastas, nes visi nurodymai bus parodomi ekrane.
 
 
-# _**v0.1**_
+# <span style="color: green"> **v0.1** </span>
 
 - Pirmiausia įrašome studentų kiekį, tuomet pagal studentų skaičių atitinkamai ir duomenis apie juos(vardus ir pavardes). 
 - Pasirenkame, kaip bus įvedami pažymiai A(automatiškai sugeneruoti skaičiai) arba įvedami pačio vartotojo). 
