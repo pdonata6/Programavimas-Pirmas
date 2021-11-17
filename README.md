@@ -1,5 +1,18 @@
 # Programavimas-Pirmas
 
+# **Įdiegimo ir naudojimosi instrukcija**
+
+• Norinti gauti programą pirmiausia reikia parsisiųsti vieną iš jos versijų iš [https://github.com/pdonata6/Programavimas-Pirmas/releases](url)
+
+• Parsisiųsti ir įsidiegti C++ kompiliatorių (pvz. GCC)
+
+• Atsidaryti terminalą ir jame įvesti programos vietą diske
+
+• Sukompiliuoti programą
+
+• Programos naudojimasis bus paprastas, nes visi nurodymai bus parodomi ekrane.
+
+
 # _**v0.1**_
 
 - Pirmiausia įrašome studentų kiekį, tuomet pagal studentų skaičių atitinkamai ir duomenis apie juos(vardus ir pavardes). 
