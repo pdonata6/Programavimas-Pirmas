@@ -51,7 +51,7 @@ RAM: 8GB
 
 ![v0 5](https://user-images.githubusercontent.com/90028851/140510548-83784251-7f60-4f13-a0ec-26126abf9dbd.png)
 
-#_**v1.0**_
+# _**v1.0**_
 
 ![v1 0](https://user-images.githubusercontent.com/90028851/144061202-7c6d8f8d-866f-46ad-8399-1bb27ef97cf0.png)
 
