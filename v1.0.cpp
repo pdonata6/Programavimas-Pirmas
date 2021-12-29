@@ -38,25 +38,28 @@ float galutinis_pazymys(vector<int> counter) {
 }
 
 
-void generavimas(vector<int> pazymiai, int &kiekis) {
-
+int generavimas(vector<int> pazymiai, int i) {
+    int kiekis;
     cout << "Iveskite studentu kieki: " << endl;
     cin >> kiekis;
     string pav = "Studentai_" + to_string(kiekis) + ".txt";
     ofstream rezultatas(pav);
-    vector<int> counter;
-    studentu_duom Eil;
     rezultatas << setw(25) << left << "Vardas"
-               << setw(25) << left << "Pavarde"
-               << setw(25) << left << "Galutinis(vidurkis)" << endl;
-    for (int a = 1; a <= kiekis; a = a + 1) {
-        counter = pazymiai_auto(5);
-        rezultatas << setw(25) << "Vardas" + to_string(a) <<
-                   setw(25) << "Pavarde" + to_string(a) <<
-                   setw(18) << galutinis_pazymys(counter) << endl;;
-        counter.clear();
-    }
+               << setw(25) << left << "Pavarde";
+    for(int a = 0; a < 5; a++ )
+        rezultatas << setw(25) << left << "paz" + to_string(a + 1);
+    rezultatas << setw(25) << left << "egzaminas" << endl;
 
+    for (int a = 1; a <= kiekis; a = a + 1) {
+
+
+        rezultatas << setw(25) << "Vardas" + to_string(a) <<
+                   setw(25) << "Pavarde" + to_string(a);
+        for(int j = 0; j < 5; j++)
+            rezultatas << setw(25) << left << generatorius_random();
+        rezultatas << setw(25) << left << generatorius_random() << endl;
+    }
+    return kiekis;
 }
 
 void failoNuskaitymasList(list<studentu_duom> &Eil, int kiekis) {
