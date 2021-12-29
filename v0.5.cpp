@@ -44,17 +44,20 @@ int generavimas(vector<int> pazymiai) {
     cin >> kiekis;
     string pav = "Studentai_" + to_string(kiekis) + ".txt";
     ofstream rezultatas(pav);
-    vector<int> counter;
-    studentu_duom Eil;
     rezultatas << setw(25) << left << "Vardas"
-               << setw(25) << left << "Pavarde"
-               << setw(25) << left << "Galutinis(vidurkis)" << endl;
+               << setw(25) << left << "Pavarde";
+    for(int a = 0; a < 5; a++ )
+        rezultatas << setw(25) << left << "paz" + to_string(a + 1);
+    rezultatas << setw(25) << left << "egzaminas" << endl;
+
     for (int a = 1; a <= kiekis; a = a + 1) {
-        counter = pazymiai_auto(5);
+
+
         rezultatas << setw(25) << "Vardas" + to_string(a) <<
-                   setw(25) << "Pavarde" + to_string(a) <<
-                   setw(18) << galutinis_pazymys(counter) << endl;;
-        counter.clear();
+                   setw(25) << "Pavarde" + to_string(a);
+        for(int j = 0; j < 5; j++)
+            rezultatas << setw(25) << left << generatorius_random();
+        rezultatas << setw(25) << left << generatorius_random() << endl;
     }
     return kiekis;
 }
@@ -91,67 +94,67 @@ int main() {
     vector<int> counter;
 
     int kiekis = generavimas(counter);
-    list<studentu_duom> studentai;
-    list<studentu_duom>::iterator iter;
-    failoNuskaitymas(studentai, kiekis);
-    list<studentu_duom> kietuoliai;
-    list<studentu_duom> silpnuoliai;
-    int silpni = 0;
-    int kieti = 0;
+   list<studentu_duom> studentai;
+   list<studentu_duom>::iterator iter;
+   failoNuskaitymas(studentai, kiekis);
+   list<studentu_duom> kietuoliai;
+   list<studentu_duom> silpnuoliai;
+   int silpni = 0;
+   int kieti = 0;
 
-    auto start = chrono::high_resolution_clock::now();
-    auto st = start;
-    for (iter = studentai.begin(); iter != studentai.end(); ++iter) {
-        float paz = 5.00;
-        if (iter->gal_paz < paz) {
-            studentu_duom silpnuolis;
-            silpnuolis.Vardas = iter->Vardas;
-            silpnuolis.Pavarde = iter->Pavarde;
-            silpnuolis.gal_paz = iter->gal_paz;
-            silpnuoliai.push_back(silpnuolis);
-            silpni++;
-        } else {
-            studentu_duom kietuolis;
-            kietuolis.Vardas = iter->Vardas;
-            kietuolis.Pavarde = iter->Pavarde;
-            kietuolis.gal_paz = iter->gal_paz;
-            kietuoliai.push_back(kietuolis);
-            kieti++;
-        }
-    }
+   auto start = chrono::high_resolution_clock::now();
+   auto st = start;
+   for (iter = studentai.begin(); iter != studentai.end(); ++iter) {
+       float paz = 5.00;
+       if (iter->gal_paz < paz) {
+           studentu_duom silpnuolis;
+           silpnuolis.Vardas = iter->Vardas;
+           silpnuolis.Pavarde = iter->Pavarde;
+           silpnuolis.gal_paz = iter->gal_paz;
+           silpnuoliai.push_back(silpnuolis);
+           silpni++;
+       } else {
+           studentu_duom kietuolis;
+           kietuolis.Vardas = iter->Vardas;
+           kietuolis.Pavarde = iter->Pavarde;
+           kietuolis.gal_paz = iter->gal_paz;
+           kietuoliai.push_back(kietuolis);
+           kieti++;
+       }
+   }
 
-    auto end = chrono::high_resolution_clock::now();
-    chrono::duration<double> diff = end - start;
-    cout << "Failo rusiavimas,kur " + to_string(kiekis) + " studentu/-ai i 2 grupes uztruko : " << diff.count()
-         << " s\n";
+   auto end = chrono::high_resolution_clock::now();
+   chrono::duration<double> diff = end - start;
+   cout << "Failo rusiavimas,kur " + to_string(kiekis) + " studentu/-ai i 2 grupes uztruko : " << diff.count()
+        << " s\n";
 
-    string pav;
-    pav = "Silpnuoliai" + to_string(kiekis) + ".txt";
-    ofstream silpnu_failas(pav);
-    auto start1 = chrono::high_resolution_clock::now();
-    auto st1 = start1;
-    for (studentu_duom elementas: silpnuoliai) {
-        silpnu_failas << elementas.Vardas << setw(25) << elementas.Pavarde << setw(25)
-                      << elementas.gal_paz << endl;
-    }
-
-    auto end1 = chrono::high_resolution_clock::now();
-    chrono::duration<double> diff1 = end1 - start1;
-    cout << "Failo isvedimas,kur  " + to_string(kiekis) + " studentas/-ai  i silpnuolius uztruko : " << diff1.count()
-         << " s\n";
-
-
-    pav = "kietuoliai" + to_string(kiekis) + ".txt";
-    ofstream kietu_failas(pav);
-    auto start2 = chrono::high_resolution_clock::now();
-
-    for (studentu_duom elementas: kietuoliai) {
-        kietu_failas << elementas.Vardas << setw(25) << elementas.Pavarde << setw(25)
+   string pav;
+   pav = "Silpnuoliai" + to_string(kiekis) + ".txt";
+   ofstream silpnu_failas(pav);
+   auto start1 = chrono::high_resolution_clock::now();
+   auto st1 = start1;
+   for (studentu_duom elementas: silpnuoliai) {
+       silpnu_failas << elementas.Vardas << setw(25) << elementas.Pavarde << setw(25)
                      << elementas.gal_paz << endl;
-    }
+   }
 
-    auto end2 = chrono::high_resolution_clock::now();
-    chrono::duration<double> diff2 = end2 - start2;
-    cout << "Failo isvedimas,kur " + to_string(kiekis) + " studentas/-ai  i kietuolius uztruko : " << diff2.count()
-         << " s\n";
+   auto end1 = chrono::high_resolution_clock::now();
+   chrono::duration<double> diff1 = end1 - start1;
+   cout << "Failo isvedimas,kur  " + to_string(kiekis) + " studentas/-ai  i silpnuolius uztruko : " << diff1.count()
+        << " s\n";
+
+
+   pav = "kietuoliai" + to_string(kiekis) + ".txt";
+   ofstream kietu_failas(pav);
+   auto start2 = chrono::high_resolution_clock::now();
+
+   for (studentu_duom elementas: kietuoliai) {
+       kietu_failas << elementas.Vardas << setw(25) << elementas.Pavarde << setw(25)
+                    << elementas.gal_paz << endl;
+   }
+
+   auto end2 = chrono::high_resolution_clock::now();
+   chrono::duration<double> diff2 = end2 - start2;
+   cout << "Failo isvedimas,kur " + to_string(kiekis) + " studentas/-ai  i kietuolius uztruko : " << diff2.count()
+        << " s\n";
 }
