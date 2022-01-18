@@ -7,4 +7,5 @@ Sistemos charakteristikos:
 - SSD: 240 GB
 - RAM: 8GB 
 
-![v0 5](https://user-images.githubusercontent.com/90028851/140510548-83784251-7f60-4f13-a0ec-26126abf9dbd.png)
+![image](https://user-images.githubusercontent.com/90028851/149961010-a6f2022f-ee19-4d61-a1ef-1fb06f4b52f9.png)
+
