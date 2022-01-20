@@ -39,7 +39,7 @@ Taip pat veikia programos veikimo greičio (spartos) analizė:
 - studentų rūšiavimas į dvi grupes/kategorijas;
 - surūšiuotų studentų išvedimas į du naujus failus;
 
-![image](https://user-images.githubusercontent.com/90028851/139395480-ee1a57cd-4eaf-49d1-bfd9-f5e79223eecf.png)
+
 
 
 # _**v0.5**_
